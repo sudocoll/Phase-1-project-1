@@ -32,9 +32,7 @@ body{
 .text{
     opacity: 0.8;
 }
-.header {
-    padding-top: 50px;
-  }
+
 .title{
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -138,4 +136,22 @@ body{
     line-height: 20px;
     --heart-color: #D25380;
   }
-  
+  .search-btn:hover{
+    background: var(--tenne-tawny-dark);
+}
+.meal-result{
+    margin-top: 4rem;
+}
+#meal{
+    margin: 2.4rem 0;
+}
+.meal-item{
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    margin: 2rem 0;
+}

@@ -78,7 +78,7 @@ body{
 }
 .search-control,
 .search-btn{
-    width: 40%;
+    width: 100;
 }
 
 .search-control{
@@ -86,8 +86,8 @@ body{
     font-size: 1.1rem;
     font-family: inherit;
     outline: 0;
-    border: 1px solid var(--tenne-tawny);
-    color: var(--tenne-tawny);
+    border: 1px solid var(--love-color);
+    color: var(--love-color);
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
 }
@@ -349,3 +349,8 @@ body{
         grid-template-columns: repeat(3, 1fr);
     }
 }
+img {
+    width: 250px;
+    height: 125px;
+}
+

@@ -223,3 +223,14 @@ body{
     -ms-border-radius: 2rem;
     -o-border-radius: 2rem;
 }
+/* js related */
+.showRecipe{
+    display: block;
+}
+
+.meal-details-content{
+    margin: 2rem;
+}
+.meal-details-content p:not(.recipe-category){
+    padding: 1rem 0;
+}

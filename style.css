@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico|Montserrat:wght@700&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 *{
     padding: 0;
@@ -12,7 +10,7 @@
     --tenne-tawny: #d65108;
     --tenne-tawny-dark: #b54507;
     --love-color: #d25380;
-    --heart-color: #FF69B4; 
+    --heart-color: #d15f98; 
 }
 
 body{
@@ -111,7 +109,6 @@ body{
     -ms-transition: all 0.4s linear;
     -o-transition: all 0.4s linear;
 }
-
 .icon {
     display: inline-block;
     width: 20px;
@@ -119,10 +116,7 @@ body{
     background-image: url('icons.png');
     background-repeat: no-repeat;
 }
-
 .icon-heart {
-   
-
     background-position: -20px 0;
     font-family: 'LoveFont', sans-serif;
     font-size: 16px;
@@ -350,7 +344,46 @@ body{
     }
 }
 img {
-    width: 250px;
-    height: 125px;
+    width: 200px;
+    height: 100px;
+  }
+ *{
+  font-family: 'Montserrat';
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+ html, body {
+    display: grid;
+    place-items:center;
+    width: 100%;
+    height: 100%;
+  }
+.button{
+  display:inline-block;
+  width: 60px;
+  background-color: #fff;
+  border-radius: 50px;
+  line-height: 60px;
+  text-align: center;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
-
+.wrapper .button .icon{
+  font-size: 20px;
+}
+.wrapper .button .hover {
+  width: 100px;
+  transition: 0.7s;
+}
+.wrapper .button:nth-child(1):hover .icon {
+  color: #426782;
+}
+.wrapper .button:nth-child(2):hover .icon {
+  color: #1da1f2;
+}
+.wrapper .button:nth-child(3):hover .icon {
+  color: #800080;
+}
+.wrapper .button:nth-child(4):hover .icon {
+  color: #E1306c;
+}

@@ -1,77 +1,82 @@
-const searchBtn = document.getElementById('search-btn');
-const mealList = document.getElementById('meal');
-const mealDetailsContent = document.querySelector('.meal-details-content');
-const recipeCloseBtn = document.getElementById('recipe-close-btn');
+
 
 // event listeners
-searchBtn.addEventListener('click', getMealList);
-mealList.addEventListener('click', getMealRecipe);
-recipeCloseBtn.addEventListener('click', () => {
-    mealDetailsContent.parentElement.classList.remove('showRecipe');
+function myFunction() {
+  onEvent("button1", "click", function( ) {
+    setScreen("thetomb");
+  });
+  onEvent("image2", "click", function( ) {
+    setScreen("firescreen");
+  });
+  onEvent("image4", "click", function( ) {
+    setScreen("earthscreen");
+  });
+  onEvent("image3", "click", function( ) {
+    setScreen("waterscreen");
+  });
+  onEvent("image6", "click", function( ) {
+    setScreen("airscreen");
+  });
+  onEvent("button2", "click", function( ) {
+    setScreen("homescreen");
+  });
+  onEvent("button6", "click", function( ) {
+    setScreen("thetomb");
+  });
+  onEvent("button4", "click", function( ) {
+    setScreen("thetomb");
+  });
+  onEvent("button3", "click", function( ) {
+    setScreen("thetomb");
+  });
+  onEvent("button5", "click", function( ) {
+    setScreen("thetomb");
+  });
+  onEvent("button7", "click", function( ) {
+    setScreen("alienfight");
+  });
+}
+myFunction();
+onEvent("image5", "mouseover", function( ) {
+  setPosition("image5", 100, 130, randomNumber(10, 150), randomNumber(10, 150));
 });
-
-
-// get meal list that matches with the ingredients
-function getMealList(){
-    let searchInputTxt = document.getElementById('search-input').value.trim();
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`)
-    .then(response => response.json())
-    .then(data => {
-        let html = "";
-        if(data.meals){
-            data.meals.forEach(meal => {
-                html += `
-                    <div class = "meal-item" data-id = "${meal.idMeal}">
-                        <div class = "meal-img">
-                            <img src = "${meal.strMealThumb}" alt = "food">
-                        </div>
-                        <div class = "meal-name">
-                            <h3>${meal.strMeal}</h3>
-                            <a href = "#" class = "recipe-btn">Get Recipe</a>
-                        </div>
-                    </div>
-                `;
-            });
-            mealList.classList.remove('notFound');
-        } else{
-            html = "Sorry, we didn't find any meal!";
-            mealList.classList.add('notFound');
-        }
-
-        mealList.innerHTML = html;
-    });
+onEvent("image8", "mouseover", function( ) {
+  setPosition("image8", 100, 150, randomNumber(150, 10), randomNumber(150, 10));
+});
+onEvent("button9", "click", function( ) {
+  setScreen("firescreen");
+});
+onEvent("image7", "mouseover", function( ) {
+  setPosition("image7", 100, 180, randomNumber(25, 180), randomNumber(180, 25));
+});
+var Lives = 6;
+onEvent("alienfight", "click", function() {
+  Lives = Lives - 1;
+  setText("Lives#", Lives);
+});
+var score = 0;
+function addscore() {
+  score = score + 1;
+  setText("Score#", score);
 }
-
-
-// get recipe of the meal
-function getMealRecipe(e){
-    e.preventDefault();
-    if(e.target.classList.contains('recipe-btn')){
-        let mealItem = e.target.parentElement.parentElement;
-        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
-        .then(response => response.json())
-        .then(data => mealRecipeModal(data.meals));
-    }
+onEvent("image5", "click", function( ) {
+  addscore();
+});
+onEvent("image7", "click", function( ) {
+  addscore();
+});
+onEvent("button8", "click", function( ) {
+  setScreen("food");
+});
+onEvent("image8", "click", function( ) {
+  addscore();
+});
+if (getText("Lives#") == 0) {
+  setScreen("aliendefeat");
 }
-
-// create a modal
-function mealRecipeModal(meal){
-    console.log(meal);
-    meal = meal[0];
-    let html = `
-        <h2 class = "recipe-title">${meal.strMeal}</h2>
-        <p class = "recipe-category">${meal.strCategory}</p>
-        <div class = "recipe-instruct">
-            <h3>Instructions:</h3>
-            <p>${meal.strInstructions}</p>
-        </div>
-        <div class = "recipe-meal-img">
-            <img src = "${meal.strMealThumb}" alt = "">
-        </div>
-        <div class = "recipe-link">
-            <a href = "${meal.strYoutube}" target = "_blank">Watch Video</a>
-        </div>
-    `;
-    mealDetailsContent.innerHTML = html;
-    mealDetailsContent.parentElement.classList.add('showRecipe');
+if (getText("Score#") == 15) {
+  hideElement("image5");
+  hideElement("image8");
+  hideElement("image7");
+  setScreen("youwin");
 }
